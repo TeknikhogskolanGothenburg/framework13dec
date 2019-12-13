@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Hamburger2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hamburger2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <NavigationView x:Name="NavView"
+                        IsBackButtonVisible="Collapsed"
+                        IsSettingsVisible="False"
+                        Header="Welcome"
+                        IsPaneOpen="False"
+                        SelectionChanged="MenuSelected">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="Home" Tag="home"/>
+                <NavigationViewItem Content="The Food Page" Tag="food">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xED56;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="AddFriend" Content="Users" Tag="users"/>
+            </NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame"/>
+        </NavigationView>
+    </Grid>
+</Page>

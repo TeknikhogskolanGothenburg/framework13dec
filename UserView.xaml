@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="Hamburger2.UserView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hamburger2"
+    xmlns:models="using:Hamburger2.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="UserList"
+                  DisplayMemberPath="Name">
+            <models:Person Name="Allan Persson" Age="45" Image="Images/face1.png"/>
+            <models:Person Name="Beda Svensson" Age="34" Image="Images/face2.png"/>
+            <models:Person Name="Carl Jansson" Age="67" Image="Images/face3.png"/>
+            <models:Person Name="David Nilsson" Age="18" Image="Images/face4.png"/>
+            <models:Person Name="Erik Karlsson" Age="25" Image="Images/face5.png"/>
+        </ListView>
+        <StackPanel Grid.Column="1">
+            <Image Source="{Binding ElementName=UserList, Path=SelectedItem.Image}"
+                   Width="128" Height="128"
+                   HorizontalAlignment="Center"
+                   />
+            <TextBlock Text="{Binding ElementName=UserList, Path=SelectedItem.Name}"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding ElementName=UserList, Path=SelectedItem.Age}"
+                       HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>
